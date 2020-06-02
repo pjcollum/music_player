@@ -7,17 +7,16 @@ const nextSong = document.getElementById('nextSong');
 const progressBar = document.querySelector('#progress-bar'); // element where progress bar appears
 
 //Songs Array
-// const songs = [
-//     "Hey",
-//     "Summer",
-//     "Ukulele",
-//     "Running Waters",
-//     "Night Owl"
-// ]
-
-////Test Code
 class Song {
     constructor(songName, songArtist) {
+        this._songName = songName;
+        this._songArtist = songArtist;
+    }
+    get songName() {
+        return this._songName;
+    }
+    get songArtist() {
+        return this._songArtist;
     }
 }
 let songLibrary = [
@@ -31,11 +30,7 @@ let songLibrary = [
     FaterLee = new Song("Fater Lee", "Black Ant")
 ]
 
-//////////////////
 let currentSongIndex = 0;
-//loadSong(songLibrary[songIndex]);
-
-
 
 function playSong(){
             
@@ -45,11 +40,6 @@ function playSong(){
     
     audio.play();    // play the song
 }
-
-// function loadSong(song) {
-//         source.src = `music/${songLibrary.songName}.mp3`;;
-// }
-
 
 //Create list of songs
 const createSongList = () => {
@@ -160,7 +150,7 @@ volumeSlider.oninput = (e) => {
 }
 
 
-// update progressBar.max to song object's duration, same for progressBar.value, update currentTime/duration on the DOM
+// update progressBar
 function updateProgressValue() {
     progressBar.max = audio.duration;
     progressBar.value = audio.currentTime;
@@ -187,7 +177,7 @@ function formatTime(secs) {
     return min + ':' + sec;
   }
 
-// run updateProgressValue function every 1/2 second to show change in progressBar and song.currentTime on the DOM
+// update progress bar every 1/2 second
 setInterval(updateProgressValue, 500);
 
 function changeProgressBar() {
