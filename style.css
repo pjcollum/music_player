@@ -1,0 +1,68 @@
+/* google fonts */
+
+* {
+    box-sizing:border-box;
+}
+
+body{
+    background: lightgrey;
+    font-size: 1.2em;
+    width: 50%;
+    height: 100vh;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    min-height: 50vh;
+}
+
+#songList {
+background: lightcyan;
+border-radius: 10px;
+text-align:left;
+
+}
+h4{
+    margin-left:10px;
+}
+
+li{
+    padding:15px;
+}
+
+li:hover, i:hover, #volumeSlider:hover, #progress-bar:hover {
+    cursor:pointer
+}
+
+#controls {
+    border:1px solid lightgray;
+    border-radius: 10px;
+    background: lightcyan;
+    padding:10px;
+}
+
+i {
+    color: lightslategray;
+}
+
+#progress-bar{
+    width: 80%;
+    margin:10px;
+}
+
+#timeControl{
+    padding: 20px;
+    
+}
+
+#currentlyPlayingSong{
+    padding: 20px;
+}
+
+#searchBar {
+    width: 100%;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid #eaeaea;
+    padding: 5px 10px;
+    font-size: 12px;
+}
