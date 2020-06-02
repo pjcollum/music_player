@@ -185,5 +185,23 @@ function changeProgressBar() {
 };
 
 
+// Idle after 30 seconds
+
+var timeout;
+
+function resetTimer(){
+  clearTimeout(timeout);
+  console.log("Clearing timer because of activity");
+  timeout = setTimeout(function(){
+    document.body.style.backgroundColor = "grey";
+    alert("Idle Mode");
+    
+    //Trigger your popup here
+  }, 5000);
+}
+
+document.onmousemove = resetTimer;
+document.onkeypress = resetTimer;
+
 
 
