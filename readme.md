@@ -1,7 +1,7 @@
-#Music Player Project
+# Music Player Project
 ______
 
-####Key Requirements:
+#### Key Requirements:
 - Allow music playback.
 - Allow music playback when the device becomes idle. The device will automatically
 switch to idle mode to save power if no user interaction is recorded over a 30 second
