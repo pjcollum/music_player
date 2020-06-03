@@ -7,7 +7,7 @@ const nextSong = document.getElementById('nextSong');
 
 const progressBar = document.querySelector('#progress-bar'); // element where progress bar appears
 
-let isPlayingFromPlaylist = false;
+
 
 //Songs Array
 class Song {
@@ -34,6 +34,7 @@ let songLibrary = [
 ]
 
 let playlistArray = []
+let isPlayingFromPlaylist = false;
 
 let currentSongIndex = 0;
 let currentPlaylistSongIndex = 0;
@@ -87,22 +88,21 @@ document.getElementById('searchBar').addEventListener('input' ,function(){
     document.getElementById('songList').appendChild(list);      //shows the matching song in a list, in place of all songs
 })
 
-//let playlistArray = [];
 
 //Create To Playlist
 document.getElementById('addToPlaylist').addEventListener('click', function(){
-    playlistArray = []
-    
+    //playlistArray = []
+
     //prompt add playlist name 
     let promptName = prompt("Name your playlist:")   
     document.getElementById('playlist').style.visibility = "visible";
     //document.getElementById('playlistName').innerHTML = promptName;
-     
     //show new playlist next to all songs...
     
     console.log(document.querySelectorAll('input:checked'));
     [...document.querySelectorAll('input:checked')].map(song => playlistArray.push(songLibrary[song.value]))
-    console.log(playlistArray);
+    
+    console.log(`playlist array: ${JSON.stringify(playlistArray)}`);
     
     const list = document.createElement('ul');
 
@@ -112,18 +112,17 @@ document.getElementById('addToPlaylist').addEventListener('click', function(){
  
         button.onclick = () => {playSong(i, [...playlistArray])};
         button.innerHTML = playlistArray[i].songName;  
-         
        
         item.appendChild(button)
         list.appendChild(item)
     }
     //document.getElementById('songList').appendChild(createSongList());
     document.getElementById('playlist').innerHTML = "";
+   
 
     const h3 = document.createElement("h3")
     h3.innerHTML = promptName;
     document.getElementById('playlist').appendChild(h3);
-
     document.getElementById('playlist').appendChild(list);
 })
 
@@ -149,6 +148,8 @@ function playSong(index, sourceArray,  flag){
     document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
     document.getElementById('currentSong').innerText = `${songName} by ${songArtist}`;
     
+    
+
     audio.load()
     audio.play()
 }
@@ -174,29 +175,27 @@ pauseAudio.onclick = () => {
 
 // //Next Song
 nextSong.onclick = () => {
-   
     const arrayLength = isPlayingFromPlaylist ? playlistArray.length : songLibrary.length;
-
+   
     if (isPlayingFromPlaylist){
         currentPlaylistSongIndex = currentPlaylistSongIndex +1
          if (currentPlaylistSongIndex > arrayLength -1){       //loops to first song in array
         currentPlaylistSongIndex = 0
-    }
-    } else{
+         } 
+    }else{
         currentSongIndex = currentSongIndex +1
         if (currentSongIndex > arrayLength -1){       //loops to first song in array
             currentSongIndex = 0
         }
     }
-
-    // if (currentSongIndex > arrayLength -1){       //loops to first song in array
-    //     currentSongIndex = 0
-    //     currentPlaylistSongIndex = 0
-    // }
+  
     const source = document.getElementById('source')
     const songName = isPlayingFromPlaylist ? playlistArray[currentPlaylistSongIndex].songName : songLibrary[currentSongIndex].songName;  
     source.src = `music/${songName}.mp3`;
 
+    console.log(` playlist array: ${playlistArray[currentPlaylistSongIndex].songName}`);
+    console.log(`song array:${songLibrary[currentSongIndex].songName}`);
+    
     document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
     document.getElementById('currentSong').innerText = songName;
     audio.load()
@@ -281,7 +280,8 @@ function resetTimer(){
   clearTimeout(timeout);
   console.log("Clearing timer because of activity");
   timeout = setTimeout(function(){
-    document.body.style.backgroundColor = "grey";
+    //document.body.style.backgroundColor = "grey";
+
     const songName = isPlayingFromPlaylist ? playlistArray[currentPlaylistSongIndex].songName : songLibrary[currentSongIndex].songName; 
     alert(`Idle Mode: You are currently listening to ${songName}`);
     
@@ -293,5 +293,10 @@ document.onmousemove = resetTimer;
 document.onkeypress = resetTimer;
 
 
-
-
+// Example Test
+const add = (num1, num2) => {
+    return num1 + num2;
+}
+module.exports = {      //multiple function export
+    add
+}

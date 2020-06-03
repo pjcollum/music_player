@@ -15,35 +15,34 @@
 </audio>
 
 <div id="controls">
-        <i class="fas fa-angle-double-left fa-5x" id="prevSong"></i>
-        <i class="far fa-play-circle fa-5x" id="playAudio" ></i>
-        <i class="far fa-pause-circle fa-5x" id="pauseAudio"></i>
-        <i class="fas fa-angle-double-right fa-5x" id="nextSong"></i>
-        <i class="fas fa-random fa-5x" id="shuffleSong"></i>
-        <br>
-        <span id="currentlyPlayingSong"></span><em><span id="currentSong"></span></em>
-
- <div id="timeControl">
-    <span class="currentTime"></span>
-        <input
+    <div id="timeControl">
+        <span class="currentTime"></span>
+            <input
             type="range"
             id="progress-bar"
             min="0"
             max=""
             value="0"
             onchange="changeProgressBar()"
-        />
-    <span class="durationTime"></span>
-        
+             />
+        <span class="durationTime"></span>
     </div>
 
+        <i class="fas fa-angle-double-left fa-5x" id="prevSong"></i>
+        <i class="far fa-play-circle fa-6x" id="playAudio" ></i>
+        <i class="far fa-pause-circle fa-6x" id="pauseAudio"></i>
+        <i class="fas fa-angle-double-right fa-5x" id="nextSong"></i>
+        <i class="fas fa-random fa-5x" id="shuffleSong"></i>
+        <br>
+        <span id="currentlyPlayingSong"></span><em><span id="currentSong"></span></em>
+
     
-    <p> Volume:</p>
+
+    <br>
         <i class="fas fa-volume-down"></i>
         <input type="range" id="volumeSlider" min="0" max="1" step="0.01" set="0" value="0.5">
         <i class="fas fa-volume-up"></i>
 </div>
-
 
 <h4>Music Library:</h4>
     <input
@@ -52,8 +51,6 @@
     id="searchBar"
     placeholder="Search song here..."
     />
-
-   
 
 <div id="list">
     <div id="songList">
@@ -66,9 +63,7 @@
     </div>
 </div>
 
-<p>Copyright Rebmem Engineering 2020</p>
-
-
+<footer>&#169 Rebmem Engineering 2020</footer>
 
     <script src="script.js"></script>
 </body>
