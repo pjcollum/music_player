@@ -4,6 +4,7 @@ const playAudio = document.getElementById('playAudio');
 const pauseAudio = document.getElementById('pauseAudio');
 const prevSong = document.getElementById('prevSong');
 const nextSong = document.getElementById('nextSong');
+
 const progressBar = document.querySelector('#progress-bar'); // element where progress bar appears
 
 //Songs Array
@@ -33,11 +34,8 @@ let songLibrary = [
 let currentSongIndex = 0;
 
 function playSong(){
-            
     audio.src = Song[songIndex];  //set the source of 0th song 
-    
     //songTitle.textContent = songs[currentSong]; // set the title of song
-    
     audio.play();    // play the song
 }
 
@@ -57,6 +55,28 @@ const createSongList = () => {
     return list;
 }
 document.getElementById('songList').appendChild(createSongList());
+
+//Search Audio File
+document.getElementById('searchBar').addEventListener('input' ,function(){
+    console.log(this.value.toLowerCase());        //print text input to console
+    //console.log(songLibrary[this.value - 1].songName);
+
+    let result = songLibrary.filter(s => s.songName.toLowerCase().includes(this.value.toLowerCase()));
+    
+    const list = document.createElement('ol');
+
+    for(let i = 0; i < result.length; i++) {
+        const item = document.createElement('li');   
+        const button = document.createElement('button');
+        button.onclick = () => {playSong(i)};
+        button.innerHTML = result[i].songName;
+        item.appendChild(button)
+        list.appendChild(item)
+    }
+    
+    document.getElementById('songList').innerHTML = ""; 
+    document.getElementById('songList').appendChild(list); 
+})
 
 
 //Play song when clicked
@@ -186,22 +206,21 @@ function changeProgressBar() {
 
 
 // Idle after 30 seconds
-
 var timeout;
-
 function resetTimer(){
   clearTimeout(timeout);
   console.log("Clearing timer because of activity");
   timeout = setTimeout(function(){
     document.body.style.backgroundColor = "grey";
-    alert("Idle Mode");
+    alert(`Idle Mode: You are currently listening to ${songLibrary[currentSongIndex].songName}`);
     
-    //Trigger your popup here
-  }, 5000);
+    //Trigger your popup after 30 seconds
+  }, 30000);      
 }
 
 document.onmousemove = resetTimer;
 document.onkeypress = resetTimer;
+
 
 
 
