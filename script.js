@@ -8,7 +8,6 @@ const nextSong = document.getElementById('nextSong');
 const progressBar = document.querySelector('#progress-bar'); // element where progress bar appears
 
 
-
 //Songs Array
 class Song {
     constructor(songName, songArtist) {
@@ -39,6 +38,7 @@ let isPlayingFromPlaylist = false;
 let currentSongIndex = 0;
 let currentPlaylistSongIndex = 0;
 
+
 //Create list of songs
 const createSongList = () => {
     const list = document.createElement('ul');
@@ -65,6 +65,7 @@ const createSongList = () => {
 }
 
 document.getElementById('songList').appendChild(createSongList());
+
 
 //Search Audio File
 document.getElementById('searchBar').addEventListener('input' ,function(){
@@ -127,6 +128,7 @@ document.getElementById('addToPlaylist').addEventListener('click', function(){
     document.getElementById('playlist').appendChild(list);
 })
 
+
 //Play song when clicked
 function playSong(index, sourceArray,  flag){
 //songList.addEventListener('click', function(e){
@@ -149,11 +151,10 @@ function playSong(index, sourceArray,  flag){
     document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
     document.getElementById('currentSong').innerText = `${songName} by ${songArtist}`;
     
-    
-
     audio.load()
     audio.play()
 }
+
 
 //Play and Pause using icons    //put in a toggle with the icon
 playAudio.onclick = () => {
@@ -174,7 +175,8 @@ pauseAudio.onclick = () => {
     audio.pause();
 }
 
-// //Next Song
+
+// Next Song
 nextSong.onclick = () => {
     const arrayLength = isPlayingFromPlaylist ? playlistArray.length : songLibrary.length;
    console.log(playlistArray)
@@ -205,6 +207,7 @@ nextSong.onclick = () => {
     audio.play()
 }
 
+
 //prev song
 prevSong.onclick = () => {
     const arrayLength = isPlayingFromPlaylist ? playlistArray.length : songLibrary.length;
@@ -231,6 +234,7 @@ prevSong.onclick = () => {
      audio.play()
 }
 
+
 //Shuffle songs
 shuffleSong.onclick = () => {
     const arrayLength = isPlayingFromPlaylist ? playlistArray.length : songLibrary.length; 
@@ -241,12 +245,12 @@ shuffleSong.onclick = () => {
     const songName = isPlayingFromPlaylist ? playlistArray[randomIndex].songName : songLibrary[randomIndex].songName; 
     source.src = `music/${songName}.mp3`;
     
-
     document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
     document.getElementById('currentSong').innerText = songName;
     audio.load()
     audio.play()
 }
+
 
 // Volume
 const volumeSlider = document.getElementById('volumeSlider');
@@ -279,9 +283,9 @@ function formatTime(secs) {
       sec  = "0" + sec;
     }
   
- 
-    return isNaN(min)?"00:00":min + ':' + sec
+    return isNaN(min) ? "00:00":min + ':' + sec
   }
+
 
 // update progress bar every 1/2 second
 setInterval(updateProgressValue, 500);

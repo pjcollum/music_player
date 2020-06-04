@@ -24,12 +24,11 @@ body{
 }
 
 #songList, #playlist {
-background: lightcyan;
-border-radius: 10px;
-text-align:left;
-width: 25vw;
-
-margin-top:10px;
+    background: lightcyan;
+    border-radius: 10px;
+    text-align:left;
+    width: 25vw;
+    margin-top:10px;
 }
 
 #playlist{
@@ -144,4 +143,35 @@ input{
 }
 footer{
     margin-top: 10px;;
+}
+
+ /* iphone X , XS, 11 Pro */
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    body {
+        background-color: lightblue;
+        margin: 10px;
+      }
+      #controls{
+          width: 80vw;
+          height: 35vh;
+          align-items:center;
+          justify-content:center;
+      }
+      #searchBar{
+        width: 80vw;
+        margin-top: 5px 0px;
+      }
+        #list #songList {
+          align-items:left;
+          width:100%;
+      } 
+      #list #playlist{
+          align-items:right;
+          width:100%;
+      } 
+      #list{
+          width:80vw;
+          margin-top:5px;
+          
+      }
 }
