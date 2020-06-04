@@ -1,4 +1,4 @@
-const app = require('../script');      //no need for .js at the end
+const app = require('../test.js');      //no need for .js at the end
 // 'app' is global... '../app' is local
 
 // with testing, assertions need to be made

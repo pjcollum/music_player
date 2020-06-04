@@ -207,18 +207,28 @@ nextSong.onclick = () => {
 
 //prev song
 prevSong.onclick = () => {
-    currentSongIndex = currentSongIndex -1
-
-    if (currentSongIndex < 0){                  //loops to last song in array
-        currentSongIndex = songLibrary.length - 1;
-    }
-    const source = document.getElementById('source')
-    source.src = `music/${songLibrary[currentSongIndex].songName}.mp3`;
-
-    document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
-    document.getElementById('currentSong').innerText = songLibrary[currentSongIndex].songName;
-    audio.load()
-    audio.play()
+    const arrayLength = isPlayingFromPlaylist ? playlistArray.length : songLibrary.length;
+ 
+     if (isPlayingFromPlaylist){
+         currentPlaylistSongIndex = currentPlaylistSongIndex -1
+          if (currentPlaylistSongIndex < 0 ){       //loops to first song in array
+         currentPlaylistSongIndex = arrayLength -1
+          } 
+     }else{
+         currentSongIndex = currentSongIndex -1
+         if (currentSongIndex <  0 ){       //loops to first song in array
+            currentSongIndex = arrayLength -1
+         }
+     }
+   
+     const source = document.getElementById('source')
+     const songName = isPlayingFromPlaylist ? playlistArray[currentPlaylistSongIndex].songName : songLibrary[currentSongIndex].songName;  
+     source.src = `music/${songName}.mp3`;
+     
+     document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
+     document.getElementById('currentSong').innerText = songName;
+     audio.load()
+     audio.play()
 }
 
 //Shuffle songs
@@ -300,10 +310,4 @@ document.onmousemove = resetTimer;
 document.onkeypress = resetTimer;
 
 
-// Example Test
-const add = (num1, num2) => {
-    return num1 + num2;
-}
-module.exports =  {add}    //multiple function export
-    
 
