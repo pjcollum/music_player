@@ -93,7 +93,7 @@ document.getElementById('searchBar').addEventListener('input' ,function(){
 
 //Create To Playlist
 document.getElementById('addToPlaylist').addEventListener('click', function(){
-    //playlistArray = []
+    playlistArray = []
 
     //prompt add playlist name 
     let promptName = prompt("Name your playlist:")   
@@ -148,7 +148,7 @@ function playSong(index, sourceArray,  flag){
     currentSongIndex = index;
     console.log(songName)
 
-    document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
+    document.getElementById('currentlyPlayingSong').innerText = "Now Playing:"
     document.getElementById('currentSong').innerText = `${songName} by ${songArtist}`;
     
     audio.load()
@@ -163,8 +163,8 @@ playAudio.onclick = () => {
    if( audio.currentSrc  == undefined || audio.currentSrc  == null || audio.currentSrc  == "") {
     const source = document.getElementById('source')
     source.src = `music/${songLibrary[0].songName}.mp3`;
-    document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
-    document.getElementById('currentSong').innerText = songLibrary[0].songName;
+    document.getElementById('currentlyPlayingSong').innerText = "Now Playing:"
+    document.getElementById('currentSong').innerText = `${songLibrary[0].songName} by ${songLibrary[0].songArtist}`;
     audio.load()
    } 
   //  source.src = `music/${clickedItem}.mp3`;
@@ -201,7 +201,7 @@ nextSong.onclick = () => {
     //console.log(` playlist array: ${playlistArray[currentPlaylistSongIndex].songName}`);
     //console.log(`song array:${songLibrary[currentSongIndex].songName}`);
     
-    document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
+    document.getElementById('currentlyPlayingSong').innerText = "Now Playing:"
     document.getElementById('currentSong').innerText = songName;
     audio.load()
     audio.play()
@@ -228,7 +228,7 @@ prevSong.onclick = () => {
      const songName = isPlayingFromPlaylist ? playlistArray[currentPlaylistSongIndex].songName : songLibrary[currentSongIndex].songName;  
      source.src = `music/${songName}.mp3`;
      
-     document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
+     document.getElementById('currentlyPlayingSong').innerText = "Now Playing:"
      document.getElementById('currentSong').innerText = songName;
      audio.load()
      audio.play()
@@ -245,7 +245,7 @@ shuffleSong.onclick = () => {
     const songName = isPlayingFromPlaylist ? playlistArray[randomIndex].songName : songLibrary[randomIndex].songName; 
     source.src = `music/${songName}.mp3`;
     
-    document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
+    document.getElementById('currentlyPlayingSong').innerText = "Now Playing:"
     document.getElementById('currentSong').innerText = songName;
     audio.load()
     audio.play()

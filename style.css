@@ -1,5 +1,6 @@
 /* google fonts */
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 * {
     box-sizing:border-box;
@@ -17,7 +18,10 @@ body{
     font-family: 'Lato', sans-serif;
 }
 
-/* mediaQuery */
+ul{
+    margin: 0;
+    padding: 10px;
+}
 
 #list{
     display:flex;
@@ -36,15 +40,13 @@ body{
 }
 button{
     font-family: 'Lato', sans-serif;
-   
 }
+
 #playlist{
     visibility: hidden;
 }
 
-#currentlyPlayingSong{
-    margin:10px;
-}
+
 
 #addToPlaylist{
     margin-left:10px;
@@ -78,14 +80,18 @@ li:nth-child(even) {
 li button{
     border: none;
     background-color: lightcyan;
+    width: 40%;
+    text-align:left;
 }
+
 li button:hover{
     border: 2px solid black;
     border-radius:5px;
     background-color:lightcyan;
+    cursor:pointer;
 }
 
-li:hover, i:hover, #volumeSlider:hover, #progress-bar:hover, #addToPlaylist:hover {
+i:hover, #volumeSlider:hover, #progress-bar:hover, #addToPlaylist:hover {
     cursor:pointer
 }
 
@@ -98,11 +104,11 @@ li:hover, i:hover, #volumeSlider:hover, #progress-bar:hover, #addToPlaylist:hove
 }
 
 i:active {
-    color:black;
+    border:2px solid black;
 }
 
 i {
-    color: lightslategray;
+    color: black;
     outline:0;
     margin:5px;
 }
@@ -127,7 +133,13 @@ input#searchBar{
 }
 
 #currentlyPlayingSong{
-    padding: 20px;
+    padding: 20px 0 0 0;
+    font-family: Montserrat;
+    margin:10px;
+    
+}
+#currentSong{
+    font-family: Montserrat;
 }
 
 #searchBar {
