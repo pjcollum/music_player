@@ -8,7 +8,7 @@
 body{
     background: lightgrey;
     font-size: 1.2em;
-    width: 50%;
+    width: 40%;
     height: 100vh;
     margin: 20px auto;
     padding: 20px;
@@ -63,12 +63,22 @@ h3 {
 }
 
 li{
-    padding:15px;
+    padding:5px;
+    
 }
+
+/* li:nth-child(odd) {
+     background: red; 
+    width:100px;
+}
+li:nth-child(even) {
+     background: green; 
+    width:100px;
+} */
 
 li button{
     border: none;
-    background-color:lightcyan;
+    background-color: lightcyan;
 }
 li button:hover{
     border: 2px solid black;
@@ -76,7 +86,7 @@ li button:hover{
     background-color:lightcyan;
 }
 
-li:hover, i:hover, #volumeSlider:hover, #progress-bar:hover {
+li:hover, i:hover, #volumeSlider:hover, #progress-bar:hover, #addToPlaylist:hover {
     cursor:pointer
 }
 
@@ -95,9 +105,15 @@ i:active {
 i {
     color: lightslategray;
     outline:0;
-    margin:10px;
+    margin:5px;
 }
 
+input#searchBar{
+    margin-top:5px;
+    background-color: lightcyan;
+    border-radius: 5px;
+    cursor:text;
+}
 #progress-bar{
     width: 80%;
     margin:10px;
@@ -106,6 +122,9 @@ i {
 #timeControl{
     padding: 20px;
     
+}
+#volumeSlider{
+    width:75px;
 }
 
 #currentlyPlayingSong{
@@ -122,4 +141,7 @@ i {
 }
 input{
     cursor:pointer;
+}
+footer{
+    margin-top: 10px;;
 }

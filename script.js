@@ -63,6 +63,7 @@ const createSongList = () => {
     }
     return list;
 }
+
 document.getElementById('songList').appendChild(createSongList());
 
 //Search Audio File
@@ -110,7 +111,7 @@ document.getElementById('addToPlaylist').addEventListener('click', function(){
         const item = document.createElement('li');
         const button = document.createElement('button');
  
-        button.onclick = () => {playSong(i, [...playlistArray])};
+        button.onclick = () => {playSong(i, [...playlistArray], true)};
         button.innerHTML = playlistArray[i].songName;  
        
         item.appendChild(button)
@@ -176,7 +177,9 @@ pauseAudio.onclick = () => {
 // //Next Song
 nextSong.onclick = () => {
     const arrayLength = isPlayingFromPlaylist ? playlistArray.length : songLibrary.length;
-   
+   console.log(playlistArray)
+   console.log(songLibrary)
+
     if (isPlayingFromPlaylist){
         currentPlaylistSongIndex = currentPlaylistSongIndex +1
          if (currentPlaylistSongIndex > arrayLength -1){       //loops to first song in array
@@ -193,8 +196,8 @@ nextSong.onclick = () => {
     const songName = isPlayingFromPlaylist ? playlistArray[currentPlaylistSongIndex].songName : songLibrary[currentSongIndex].songName;  
     source.src = `music/${songName}.mp3`;
 
-    console.log(` playlist array: ${playlistArray[currentPlaylistSongIndex].songName}`);
-    console.log(`song array:${songLibrary[currentSongIndex].songName}`);
+    //console.log(` playlist array: ${playlistArray[currentPlaylistSongIndex].songName}`);
+    //console.log(`song array:${songLibrary[currentSongIndex].songName}`);
     
     document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
     document.getElementById('currentSong').innerText = songName;
@@ -220,13 +223,17 @@ prevSong.onclick = () => {
 
 //Shuffle songs
 shuffleSong.onclick = () => {
-    randomIndex = Math.floor(Math.random() * songLibrary.length)
+    const arrayLength = isPlayingFromPlaylist ? playlistArray.length : songLibrary.length; 
+    randomIndex = Math.floor(Math.random() * arrayLength)
 
     const source = document.getElementById('source')
-    source.src = `music/${songLibrary[randomIndex].songName}.mp3`;
+    
+    const songName = isPlayingFromPlaylist ? playlistArray[randomIndex].songName : songLibrary[randomIndex].songName; 
+    source.src = `music/${songName}.mp3`;
+    
 
     document.getElementById('currentlyPlayingSong').innerText = "Currently Playing:"
-    document.getElementById('currentSong').innerText = songLibrary[randomIndex].songName;
+    document.getElementById('currentSong').innerText = songName;
     audio.load()
     audio.play()
 }
@@ -297,6 +304,6 @@ document.onkeypress = resetTimer;
 const add = (num1, num2) => {
     return num1 + num2;
 }
-module.exports = {      //multiple function export
-    add
-}
+module.exports =  {add}    //multiple function export
+    
+
