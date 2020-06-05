@@ -234,7 +234,7 @@ prevSong.onclick = () => {
 //Shuffle songs
 shuffleSong.onclick = () => {
     const arrayLength = isPlayingFromPlaylist ? playlistArray.length : songLibrary.length; 
-    randomIndex = Math.floor(Math.random() * arrayLength)
+    let randomIndex = Math.floor(Math.random() * arrayLength)
 
     const source = document.getElementById('source')
     
@@ -263,7 +263,7 @@ function updateProgressValue() {
     formatTime(audio.currentTime);
     document.querySelector('.durationTime').innerHTML =  
     formatTime(audio.duration); 
-  };
+  }
 
 
 // Time Format
@@ -288,7 +288,7 @@ setInterval(updateProgressValue, 500);
 
 function changeProgressBar() {
   audio.currentTime = progressBar.value;
-};
+}
 
 
 // Idle after 30 seconds

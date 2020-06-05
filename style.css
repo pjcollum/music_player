@@ -20,6 +20,7 @@ body{
 ul{
     margin: 0;
     padding: 10px;
+    list-style-type: none;
 }
 
 #list{
@@ -36,22 +37,15 @@ ul{
 
 #playlist{
     margin-left: 10px;
+    visibility: hidden;
 }
 button{
     font-family: 'Lato', sans-serif;
 }
 
-#playlist{
-    visibility: hidden;
-}
-
 #addToPlaylist{
     margin-left:10px;
 }
-
-ul {
-    list-style-type: none;
- } 
 
 h4 {
     margin-left:10px;
@@ -131,12 +125,12 @@ input#searchBar{
 
 #currentlyPlayingSong{
     padding: 20px 0 0 0;
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     margin:10px;
     
 }
 #currentSong{
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
 }
 
 #searchBar {
@@ -151,7 +145,7 @@ input{
     cursor:pointer;
 }
 footer{
-    margin-top: 10px;;
+    margin-top: 10px;
 }
 
  /* iphone X , XS, 11 Pro */
