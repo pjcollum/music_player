@@ -1,10 +1,8 @@
 const audio = document.getElementById('player');
-
 const playAudio = document.getElementById('playAudio');
 const pauseAudio = document.getElementById('pauseAudio');
 const prevSong = document.getElementById('prevSong');
 const nextSong = document.getElementById('nextSong');
-
 const progressBar = document.querySelector('#progress-bar'); // element where progress bar appears
 
 
@@ -32,7 +30,7 @@ let songLibrary = [
     FaterLee = new Song("Fater Lee", "Black Ant")
 ]
 
-let playlistArray = []
+let playlistArray = []          //empty playlist array
 let isPlayingFromPlaylist = false;
 
 let currentSongIndex = 0;
@@ -43,17 +41,16 @@ let currentPlaylistSongIndex = 0;
 const createSongList = () => {
     const list = document.createElement('ul');
 
-    for(let i = 0; i < songLibrary.length; i++) {
+    for(let i = 0; i < songLibrary.length; i++) {       //create unordered list from the items in array
         const item = document.createElement('li');
         const button = document.createElement('button');
 
-        //add checkbox to each song name to add to playlist
-        var x = document.createElement("INPUT");
+        var x = document.createElement("INPUT");    //add checkbox to each song name to add to playlist
         x.setAttribute("type", "checkbox");
         x.setAttribute("value", i)
         x.setAttribute("name", "songName")
 
-        button.onclick = () => {playSong(i, [...songLibrary])};
+        button.onclick = () => {playSong(i, [...songLibrary])}; 
         button.innerHTML = songLibrary[i].songName;
         //item.appendChild(document.createTextNode(`${JSON.stringify(songLibrary[i].songName)} by ${JSON.stringify(songLibrary[i].songArtist)}`))
        
@@ -81,11 +78,10 @@ document.getElementById('searchBar').addEventListener('input' ,function(){
         const button = document.createElement('button');
         button.onclick = () => {playSong(i, [...result])};
         button.innerHTML = result[i].songName;
-       // item.appendChild(x)
+      
         item.appendChild(button)
         list.appendChild(item)
     }
-    
     document.getElementById('songList').innerHTML = "";         //clears list of songs
     document.getElementById('songList').appendChild(list);      //shows the matching song in a list, in place of all songs
 })
@@ -124,7 +120,7 @@ document.getElementById('addToPlaylist').addEventListener('click', function(){
 
     const h3 = document.createElement("h3")
     h3.innerHTML = promptName;
-    document.getElementById('playlist').appendChild(h3);
+    document.getElementById('playlist').appendChild(h3);    //adds playlist name to header
     document.getElementById('playlist').appendChild(list);
 })
 

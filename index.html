@@ -17,14 +17,9 @@
 <div id="controls">
     <div id="timeControl">
         <span class="currentTime"></span>
-            <input
-            type="range"
-            id="progress-bar"
-            min="0"
-            max=""
-            value="0"
+            <input type="range" id="progress-bar" min="0" max="" value="0"
             onchange="changeProgressBar()"
-             />
+            />
         <span class="durationTime"></span>
     </div>
 
@@ -38,29 +33,17 @@
         <i class="fas fa-volume-up fa-1x"></i>
         <br>
         <span id="currentlyPlayingSong"></span><em><span id="currentSong"></span></em>
-
-    
-
     <br>
-        
 </div>
 
-<!-- <h4>Music Library:</h4> -->
-    <input
-    type="text"
-    name="searchBar"
-    id="searchBar"
-    placeholder="Search song here..."
-    />
+    <input type="search" name="searchBar" id="searchBar" placeholder="Search song here..."/>
 
 <div id="list">
     <div id="songList">
         <h3>All Songs</h3>
         <button id="addToPlaylist" title="Choose songs before creating playlist">Create Playlist </button>
-        <!-- <span><input id ="check" name="checkBoxes"></span> -->
     </div>
     <div id="playlist">
-       
     </div>
 </div>
 

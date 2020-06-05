@@ -1,4 +1,3 @@
-/* google fonts */
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
@@ -45,8 +44,6 @@ button{
 #playlist{
     visibility: hidden;
 }
-
-
 
 #addToPlaylist{
     margin-left:10px;
@@ -158,7 +155,8 @@ footer{
 }
 
  /* iphone X , XS, 11 Pro */
-@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px)
+ and (-webkit-device-pixel-ratio: 3) {
     body {
         background-color: lightblue;
         margin: 10px;
