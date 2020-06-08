@@ -12,7 +12,7 @@ ______
 
 ____
 
-![alt tag](/FinalDesign.png)
+![alt tag](/images/FinalDesign.png)
 _____
 Music taken from [https://www.bensound.com/](https://www.bensound.com/)
 
