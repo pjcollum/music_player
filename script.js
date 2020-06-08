@@ -194,8 +194,8 @@ nextSong.onclick = () => {
     const songName = isPlayingFromPlaylist ? playlistArray[currentPlaylistSongIndex].songName : songLibrary[currentSongIndex].songName;  
     source.src = `music/${songName}.mp3`;
 
-    //console.log(` playlist array: ${playlistArray[currentPlaylistSongIndex].songName}`);
-    //console.log(`song array:${songLibrary[currentSongIndex].songName}`);
+    console.log(` playlist array: ${playlistArray[currentPlaylistSongIndex].songName}`);
+    console.log(`song array:${songLibrary[currentSongIndex].songName}`);
     
     document.getElementById('currentlyPlayingSong').innerText = "Now Playing:"
     document.getElementById('currentSong').innerText = songName;

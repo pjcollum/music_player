@@ -1,13 +1,19 @@
 # Music Player Project
 ______
+#### How to use the music player:
+- Press play to hear the first song in the song library.
+- Press shuffle to play a random song.
+- Search for a song in the song library.
+- To create a playlist:
+  1. Tick the songs required.
+  2. Click `create playlist`.
+  3. Enter name of playlist.
+ - After 30 seconds of inactivity, idle mode will be engaged.
 
-#### Key Requirements:
-- Allow music playback.
-- Allow music playback when the device becomes idle. The device will automatically
-switch to idle mode to save power if no user interaction is recorded over a 30 second
-period.
-- Have a random shuffle function.
-- Have a search option for audio files within a media database.
-- List display options by song track or album.
-- Allow for a Creation of a song play list.
-- Have user control over playback.
+____
+
+![alt tag](/FinalDesign.png)
+_____
+Music taken from [https://www.bensound.com/](https://www.bensound.com/)
+
+Rebmem Engineering 2020
