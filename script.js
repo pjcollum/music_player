@@ -20,9 +20,9 @@ class Song {
     }
 }
 let songLibrary = [
-    Hey = new Song('Hey', 'Hey'),
-    Summer = new Song("Summer", "Summer"),
-    Ukulele = new Song("Ukulele", "Ukulele"),
+    // Hey = new Song('Hey', 'Hey'),
+    // Summer = new Song("Summer", "Summer"),
+    // Ukulele = new Song("Ukulele", "Ukulele"),
     RunningWaters = new Song("Running Waters", "Jason Shaw"),
     NightOwl = new Song("Night Owl", "Broke For Free"),
     Starling = new Song("Starling", "Podington Bear"),
